@@ -1,0 +1,17 @@
+type Mutation {
+	createUser(input: CreateUserModel): UserModel
+}
+type Query {
+	getAllUsers: [UserModel]
+}
+
+type UserModel {
+	id: Int
+	name: String
+	email: String
+}
+
+input CreateUserModel {
+	name: String
+	email: String
+}

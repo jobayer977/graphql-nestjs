@@ -3,7 +3,7 @@ https://docs.nestjs.com/providers#services
 */
 
 import { Injectable } from '@nestjs/common';
-import { UserModel } from './models';
+import { UserModel } from 'src/graphql';
 
 @Injectable()
 export class UsersService {

@@ -5,14 +5,18 @@ import { UsersModule } from './users/users.module';
 import { join } from 'path';
 
 @Module({
-  imports: [
-    UsersModule,
-    GraphQLModule.forRoot({
-      driver: ApolloDriver,
-      autoSchemaFile: join(process.cwd(), 'src/schems.gql'),
-    }),
-  ],
-  controllers: [],
-  providers: [],
+	imports: [
+		UsersModule,
+		GraphQLModule.forRoot({
+			driver: ApolloDriver,
+			typePaths: ['./**/*.graphql'],
+			definitions: {
+				path: join(process.cwd(), 'src/graphql.ts'),
+				outputAs: 'interface',
+			},
+		}),
+	],
+	controllers: [],
+	providers: [],
 })
 export class AppModule {}
